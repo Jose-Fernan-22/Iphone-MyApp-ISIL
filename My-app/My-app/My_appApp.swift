@@ -12,6 +12,7 @@ struct My_app: App {
     // Creamos una única instancia de nuestros ViewModels
     @StateObject private var carritoViewModel = CarritoViewModel()
     @StateObject private var favoritosViewModel = FavoritosViewModel()
+    @StateObject private var homeViewModel = HomeViewModel()
 
     var body: some Scene {
         WindowGroup {
@@ -19,6 +20,7 @@ struct My_app: App {
             VistaPrincipal()
                 .environmentObject(carritoViewModel)
                 .environmentObject(favoritosViewModel)
+                .environmentObject(homeViewModel) 
         }
     }
 }
