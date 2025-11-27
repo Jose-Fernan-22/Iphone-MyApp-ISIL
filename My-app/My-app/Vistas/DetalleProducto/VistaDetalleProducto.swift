@@ -11,6 +11,7 @@ struct VistaDetalleProducto: View {
     @StateObject private var viewModel = DetalleProductoViewModel()
     @EnvironmentObject var carritoViewModel: CarritoViewModel
     @EnvironmentObject var favoritosViewModel: FavoritosViewModel
+    @Environment(\.modelContext) var context
     @State private var tallaSeleccionada = "M"
     let tallas = ["XS", "S", "M", "L", "XL"]
 
@@ -30,7 +31,7 @@ struct VistaDetalleProducto: View {
                     HStack {
                         Text(producto.nombre).font(.title2).fontWeight(.bold)
                         Spacer()
-                        Button(action: { favoritosViewModel.alternarFavorito(producto: producto) }) {
+                        Button(action: { favoritosViewModel.alternarFavorito(producto: producto, context: context) }) {
                             Image(systemName: favoritosViewModel.esFavorito(producto: producto) ? "heart.fill" : "heart")
                                 .foregroundColor(.red).font(.title2)
                         }

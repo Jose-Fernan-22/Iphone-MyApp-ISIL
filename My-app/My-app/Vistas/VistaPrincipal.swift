@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct VistaPrincipal: View {
+    @EnvironmentObject var favoritosViewModel: FavoritosViewModel
+    @Environment(\.modelContext) var context
+    
     var body: some View {
         TabView {
             // Cada una de estas será una de nuestras pantallas
@@ -25,6 +28,9 @@ struct VistaPrincipal: View {
                 .tabItem {
                     Label("Carrito", systemImage: "cart.fill")
                 }
+        }
+        .onAppear{
+            favoritosViewModel.cargarFavoritos(context: context)
         }
     }
 }

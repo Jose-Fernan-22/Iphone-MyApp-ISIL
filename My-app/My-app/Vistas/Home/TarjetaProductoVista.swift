@@ -11,6 +11,7 @@ struct TarjetaProductoVista: View {
     let producto: Producto
     // Obtenemos acceso al ViewModel para poder interactuar con él
     @EnvironmentObject var favoritosViewModel: FavoritosViewModel
+    @Environment(\.modelContext) var context
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -29,7 +30,7 @@ struct TarjetaProductoVista: View {
                 
                 // El nuevo botón de corazón
                 Button(action: {
-                    favoritosViewModel.alternarFavorito(producto: producto)
+                    favoritosViewModel.alternarFavorito(producto: producto, context: context)
                 }) {
                     Image(systemName: favoritosViewModel.esFavorito(producto: producto) ? "heart.fill" : "heart")
                         .font(.title2)

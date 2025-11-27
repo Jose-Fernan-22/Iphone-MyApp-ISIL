@@ -22,7 +22,7 @@ class CarritoViewModel: ObservableObject {
         }
     }
     
-    func elimiminarItems(en offsets: IndexSet) {
+    func eliminarItems(en offsets: IndexSet) {
         items.remove(atOffsets: offsets)
     }
 }

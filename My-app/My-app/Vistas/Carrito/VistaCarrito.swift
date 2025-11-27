@@ -45,13 +45,13 @@ struct VistaCarrito: View {
                             }
                             
                         }
-                        .onDelete(perform: carritoViewModel.elimiminarItems)// Este sera la magia del swipe-to-delete
+                        .onDelete(perform: carritoViewModel.eliminarItems)// Este sera la magia del swipe-to-delete
                     }
                     
                     //Resumen del total y boton de Pagar
                     VStack(spacing:15) {
                         HStack {
-                            Text("Toral:")
+                            Text("Total:")
                                 .font(.title2)
                                 .fontWeight(.bold)
                             Spacer()

@@ -9,6 +9,7 @@ import SwiftUI
 struct VistaFavoritos: View {
     // Obtenemos acceso al ViewModel de favoritos
     @EnvironmentObject var favoritosViewModel: FavoritosViewModel
+    @Environment(\.modelContext) var context
 
     var body: some View {
         NavigationView {
@@ -49,6 +50,10 @@ struct VistaFavoritos: View {
                 }
                 .navigationTitle("Mis Favoritos")
             }
+        }.onAppear{
+            favoritosViewModel.cargarFavoritos(context: context)
         }
+        
     }
+        
 }
